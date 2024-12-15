@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>맛집 리스트</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- 네비게이션 바 포함 -->
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1>맛집 리스트</h1>
+    <div class="restaurant-list">
+      <!-- 맛집 목록 -->
+      <% if (restaurants.length > 0) { %>
+        <% restaurants.forEach(function(restaurant) { %>
+          <div class="restaurant-item">
+            <!-- Google Drive 이미지 URL을 사용 -->
+            <img src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
+            <h3><%= restaurant.name %></h3>
+            <p><%= restaurant.description %></p>
+            <p><strong>주소:</strong> <%= restaurant.address %></p>
+            <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
+            <a href="/restaurant/<%= restaurant.id %>" class="details-button">상세 보기</a>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>현재 맛집 목록이 없습니다.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

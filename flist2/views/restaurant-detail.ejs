@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= restaurant.name %> 상세 정보</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- 네비게이션 바 포함 -->
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1><%= restaurant.name %></h1>
+    <img src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
+    <p><strong>설명:</strong> <%= restaurant.description %></p>
+    <p><strong>주소:</strong> <%= restaurant.address %></p>
+    <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
+    <a href="/restaurant-list" class="back-button">목록으로 돌아가기</a>
+  </div>
+</body>
+</html>
