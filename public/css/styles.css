@@ -343,3 +343,177 @@ body {
   .restaurant-detail-container button:hover {
     background-color: #45a049;
   }
+
+  /* 기본 스타일 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* 홈 화면 컨테이너 */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* 그라데이션 배경 */
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* 영웅 배너 섹션 */
+.hero-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: rgba(0, 0, 0, 0.4); /* 배경 어두운 색으로 약간 강조 */
+  border-radius: 15px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+}
+
+/* 미디어 쿼리: 모바일 화면에서 버튼 크기 및 텍스트 크기 조정 */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 36px;
+  }
+
+  .hero-section p {
+    font-size: 18px;
+  }
+
+  .button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+/* 기본 스타일 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 개발자 프로필 박스 */
+.developer-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.developer-profiles {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.developer-profile {
+  width: 45%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-profile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.developer-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.developer-profile h3 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.developer-profile p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #007BFF;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s ease;

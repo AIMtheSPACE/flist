@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홈 페이지</title>
+  <title>청운 맛집 리스트</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <%- include('partials/header') %> <!-- 네비게이션 바 추가 -->
-  <div class="content">
-    <h1>청운 맛집 리스트에 오신 것을 환영합니다!</h1>
-    <p>원하는 메뉴를 선택해 보세요.</p>
+  <%- include('partials/header') %>
+  <div class="home-container">
+    <div class="hero-section">
+      <h1>청운 맛집 리스트에 오신 것을 환영합니다!</h1>
+      <p>맛집을 탐험하고, 새로운 맛을 발견하세요.</p>
+      <div class="buttons">
+        <a href="/restaurant-list" class="button">맛집 리스트 보기</a>
+        <a href="/developer" class="button">개발자 소개</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
