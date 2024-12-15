@@ -11,6 +11,7 @@ const db = mysql.createConnection({
   database: 'restaurantDB'  // 사용하려는 데이터베이스 이름
 });
 
+
 db.connect((err) => {
   if (err) {
     console.error('MySQL 연결 오류: ' + err.stack);
