@@ -25,36 +25,33 @@ app.set('views', path.join(__dirname, 'views'));
 
 // 정적 파일 제공
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // 홈 페이지 라우트
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-// 맛집 리스트 라우트
+// 맛집 리스트 페이지 라우트
 app.get('/restaurant-list', (req, res) => {
-    db.query('SELECT * FROM restaurants', (err, results) => {
-      if (err) {
-        console.error('데이터베이스 조회 오류: ' + err.stack);
-        return res.status(500).send('서버 오류');
-      }
-  
-      // 데이터가 제대로 있는지 확인
-      console.log(results);  // 결과 확인을 위한 로그
-  
-      res.render('restaurant-list', { restaurants: results }); // 결과를 ejs로 전달
-    });
+  db.query('SELECT id, name, food_category, time_to_chart, rating, image_url FROM restaurants', (err, results) => {
+    if (err) {
+      console.error('데이터베이스 조회 오류: ' + err.stack);
+      return;
+    }
+    res.render('restaurant-list', { restaurants: results });
   });
+});
 
 // 맛집 상세 페이지 라우트
 app.get('/restaurant/:id', (req, res) => {
   const restaurantId = req.params.id;
 
-  // MySQL에서 해당 맛집의 상세 정보를 가져오기
+  // MySQL에서 해당 맛집의 모든 정보를 가져오기
   db.query('SELECT * FROM restaurants WHERE id = ?', [restaurantId], (err, results) => {
     if (err) {
       console.error('데이터베이스 조회 오류: ' + err.stack);
-      return res.status(500).send('서버 오류');
+      return;
     }
     if (results.length === 0) {
       return res.status(404).send('맛집을 찾을 수 없습니다.');

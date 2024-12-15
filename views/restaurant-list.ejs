@@ -5,25 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>맛집 리스트</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- 네비게이션 바 포함 -->
-  <%- include('partials/header') %>
-
+  <%- include('partials/header') %> <!-- 네비게이션 바 포함 -->
   <div class="container">
     <h1>맛집 리스트</h1>
     <div class="restaurant-list">
-      <!-- 맛집 목록 -->
       <% if (restaurants.length > 0) { %>
         <% restaurants.forEach(function(restaurant) { %>
           <div class="restaurant-item">
-            <!-- Google Drive 이미지 URL을 사용 -->
             <img src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
             <h3><%= restaurant.name %></h3>
-            <p><%= restaurant.description %></p>
-            <p><strong>주소:</strong> <%= restaurant.address %></p>
-            <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
-            <a href="/restaurant/<%= restaurant.id %>" class="details-button">상세 보기</a>
+            <p><strong>음식 분류:</strong> <%= restaurant.food_category %></p>
+            <p><strong>걸리는 시간:</strong> <%= restaurant.time_to_chart %></p>
+            <p><strong>평점:</strong>
+              <span class="stars">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <i class="fa <% if (i <= restaurant.rating) { %>fa-star<% } else { %>fa-star-o<% } %>"></i>
+                <% } %>
+              </span>
+            </p>
+            <a href="/restaurant/<%= restaurant.id %>">상세 보기</a>
           </div>
         <% }); %>
       <% } else { %>

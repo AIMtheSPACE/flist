@@ -3,20 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= restaurant.name %> 상세 정보</title>
+  <title><%= restaurant.name %> - 맛집 상세</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <!-- Font Awesome for stars -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- 네비게이션 바 포함 -->
-  <%- include('partials/header') %>
+  <%- include('partials/header') %> <!-- 네비게이션 바 포함 -->
 
   <div class="container">
-    <h1><%= restaurant.name %></h1>
-    <img src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
-    <p><strong>설명:</strong> <%= restaurant.description %></p>
-    <p><strong>주소:</strong> <%= restaurant.address %></p>
-    <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
-    <a href="/restaurant-list" class="back-button">목록으로 돌아가기</a>
+    <div class="restaurant-detail-card">
+      <h1 class="restaurant-title"><%= restaurant.name %> 상세 정보</h1>
+
+      <div class="restaurant-detail">
+        <!-- 레스토랑 이미지 박스 -->
+        <div class="restaurant-image-box">
+          <img class="restaurant-image" src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
+        </div>
+
+        <!-- 레스토랑 정보 박스 -->
+        <div class="restaurant-info">
+          <div class="info-box">
+            <p><strong>음식 분류:</strong> <%= restaurant.food_category %></p>
+          </div>
+
+          <div class="info-box">
+            <p><strong>설명:</strong> <%= restaurant.description %></p>
+          </div>
+
+          <div class="info-box">
+            <p><strong>평점:</strong>
+              <div class="stars">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <i class="fa <% if (i <= restaurant.rating) { %>fa-star<% } else { %>fa-star-o<% } %>"></i>
+                <% } %>
+              </div>
+            </p>
+          </div>
+
+          <div class="info-box">
+            <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
+          </div>
+
+          <div class="info-box">
+            <p><strong>주소:</strong> <%= restaurant.address %></p>
+          </div>
+
+          <a href="/restaurant-list" class="back-button">뒤로 가기</a>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
