@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홈 페이지</title>
+  <title>맛집 추천 사이트</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <%- include('partials/header') %> <!-- 네비게이션 바 추가 -->
-  <div class="content">
-    <h1>청운 맛집 리스트에 오신 것을 환영합니다!</h1>
-    <p>오늘 뭐  먹을지 정해보세요!</p>
-  </div>
+  <%- include('partials/header') %> <!-- 네비게이션 바 포함 -->
+
+  <header class="main-header">
+    <div class="header-content">
+      <h1>맛집 추천 사이트</h1>
+      <p>당신의 취향에 맞는 최고의 맛집을 찾아보세요!</p>
+      <a href="/restaurant-list" class="main-button">맛집 보러가기</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="features">
+      <h2>주요 기능</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <i class="fa fa-cutlery"></i>
+          <h3>맛집 리스트</h3>
+          <p>다양한 음식 분류와 평점으로 원하는 맛집을 찾을 수 있어요.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-map-marker"></i>
+          <h3>지도와 연동</h3>
+          <p>내 주변의 맛집을 쉽게 찾아볼 수 있습니다.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-user"></i>
+          <h3>개발자 소개</h3>
+          <p>이 사이트를 만든 개발자에 대해 알아보세요.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %> <!-- 푸터 포함 -->
 </body>
 </html>

@@ -5,54 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= restaurant.name %> - 맛집 상세</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Font Awesome for stars -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
   <%- include('partials/header') %> <!-- 네비게이션 바 포함 -->
-
   <div class="container">
-    <div class="restaurant-detail-card">
-      <h1 class="restaurant-title"><%= restaurant.name %> 상세 정보</h1>
+    <div class="restaurant-detail">
+      <!-- 상단 이미지 -->
+      <div class="restaurant-image">
+        <img src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
+      </div>
 
-      <div class="restaurant-detail">
-        <!-- 레스토랑 이미지 박스 -->
-        <div class="restaurant-image-box">
-          <img class="restaurant-image" src="<%= restaurant.image_url %>" alt="<%= restaurant.name %>">
-        </div>
+      <!-- 가게 정보 -->
+      <div class="restaurant-info">
+        <h1><%= restaurant.name %></h1>
+        <p><i class="fa fa-cutlery"></i> <strong>음식 분류:</strong> <%= restaurant.food_category %></p>
+        <p><i class="fa fa-users"></i> <strong>누구와 함께:</strong> <%= restaurant.with %></p>
+        <p><i class="fa fa-clock-o"></i> <strong>걸리는 시간:</strong> <%= restaurant.time_to_chart %></p>
+        <p><strong>평점:</strong> 
+          <span class="stars">
+            <% for (let i = 1; i <= 5; i++) { %>
+              <i class="fa <% if (i <= restaurant.rating) { %>fa-star<% } else { %>fa-star-o<% } %>"></i>
+            <% } %>
+          </span>
+        </p>
+      </div>
 
-        <!-- 레스토랑 정보 박스 -->
-        <div class="restaurant-info">
-          <div class="info-box">
-            <p><strong>음식 분류:</strong> <%= restaurant.food_category %></p>
-          </div>
-
-          <div class="info-box">
-            <p><strong>설명:</strong> <%= restaurant.description %></p>
-          </div>
-
-          <div class="info-box">
-            <p><strong>평점:</strong>
-              <div class="stars">
-                <% for (let i = 1; i <= 5; i++) { %>
-                  <i class="fa <% if (i <= restaurant.rating) { %>fa-star<% } else { %>fa-star-o<% } %>"></i>
-                <% } %>
-              </div>
-            </p>
-          </div>
-
-          <div class="info-box">
-            <p><strong>전화번호:</strong> <%= restaurant.phone %></p>
-          </div>
-
-          <div class="info-box">
-            <p><strong>주소:</strong> <%= restaurant.address %></p>
-          </div>
-
-          <a href="/restaurant-list" class="back-button">뒤로 가기</a>
-        </div>
+      <!-- 뒤로가기 버튼 -->
+      <div class="back-button">
+        <a href="/restaurant-list" class="button">목록 보기</a>
       </div>
     </div>
   </div>
+  <%- include('partials/footer') %> <!-- 푸터 포함 -->
 </body>
 </html>

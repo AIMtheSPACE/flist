@@ -14,8 +14,12 @@ body {
 /* 맛집 리스트 컨테이너 */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
 }
 
 /* 맛집 리스트 스타일 */
@@ -33,6 +37,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .restaurant-item:hover {
@@ -64,7 +69,7 @@ body {
 .restaurant-item a {
   display: inline-block;
   text-decoration: none;
-  background-color: #4CAF50;
+  background-color: #005990;
   color: white;
   padding: 12px 20px;
   margin: 20px 15px;
@@ -75,7 +80,7 @@ body {
 }
 
 .restaurant-item a:hover {
-  background-color: #45a049;
+  background-color: #1776b2;
 }
 
 /* 반응형 디자인 */
@@ -114,7 +119,6 @@ body {
 
 /* 네비게이션 스타일 */
 .navbar {
-  background-color: #007BFF;
   padding: 15px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -152,7 +156,7 @@ body {
 
 /* 헤더 스타일 */
 header {
-  background-color: #007BFF;
+  background-color: #005990;
   color: #fff;
   padding: 15px 20px;
   text-align: center;
@@ -314,3 +318,257 @@ h2 {
   color: #0056b3;
 }
 
+.restaurant-image {
+  width: 30%;
+}
+
+/* 드롭다운 메뉴 스타일 */
+#food-category {
+  width: 200px; /* 드롭다운 너비 */
+  padding: 8px 12px; /* 안쪽 여백 */
+  font-size: 16px; /* 글자 크기 */
+  color: #333; /* 글자 색상 */
+  border: 1px solid #ccc; /* 테두리 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  background-color: #fff; /* 배경색 */
+  appearance: none; /* 기본 드롭다운 스타일 제거 (크롬, 사파리) */
+  -webkit-appearance: none; /* 기본 드롭다운 스타일 제거 (웹킷 기반) */
+  -moz-appearance: none; /* 기본 드롭다운 스타일 제거 (파이어폭스) */
+  cursor: pointer; /* 커서 변경 */
+  transition: all 0.3s ease; /* 호버 시 부드러운 애니메이션 */
+}
+
+/* 드롭다운 화살표 스타일 */
+#food-category::-ms-expand {
+  display: none; /* 기본 화살표 제거 (IE) */
+}
+
+#food-category:hover {
+  border-color: #007BFF; /* 호버 시 테두리 색 변경 */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 호버 시 박스 그림자 추가 */
+}
+
+/* 드롭다운 with 메뉴 스타일 */
+#with-category {
+  width: 200px; /* 드롭다운 너비 */
+  padding: 8px 12px; /* 안쪽 여백 */
+  font-size: 16px; /* 글자 크기 */
+  color: #333; /* 글자 색상 */
+  border: 1px solid #ccc; /* 테두리 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  background-color: #fff; /* 배경색 */
+  appearance: none; /* 기본 드롭다운 스타일 제거 (크롬, 사파리) */
+  -webkit-appearance: none; /* 기본 드롭다운 스타일 제거 (웹킷 기반) */
+  -moz-appearance: none; /* 기본 드롭다운 스타일 제거 (파이어폭스) */
+  cursor: pointer; /* 커서 변경 */
+  transition: all 0.3s ease; /* 호버 시 부드러운 애니메이션 */
+}
+
+/* 드롭다운 화살표 스타일 */
+#with-category::-ms-expand {
+  display: none; /* 기본 화살표 제거 (IE) */
+}
+
+#with-category:hover {
+  border-color: #007BFF; /* 호버 시 테두리 색 변경 */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 호버 시 박스 그림자 추가 */
+}
+
+/* 드롭다운 부모 요소 스타일 */
+form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 드롭다운과 버튼 간격 */
+  margin-bottom: 20px; /* 폼 아래 간격 */
+}
+
+/* 버튼 스타일 */
+form button {
+  padding: 8px 16px; /* 버튼 패딩 */
+  font-size: 16px; /* 글자 크기 */
+  background-color: #007BFF; /* 버튼 배경색 */
+  color: #fff; /* 글자 색 */
+  border: none; /* 테두리 없음 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  cursor: pointer; /* 커서 변경 */
+  transition: background-color 0.3s ease; /* 호버 애니메이션 */
+}
+
+form button:hover {
+  background-color: #0056b3; /* 호버 시 버튼 색상 변경 */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-header {
+  background: url('/images/header-bg.jpg') no-repeat center center/cover;
+  color: rgb(168, 49, 49);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.main-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff6f61;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.main-button:hover {
+  background: #ff453a;
+}
+
+.main-content {
+  padding: 50px 20px;
+}
+
+.features {
+  text-align: center;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.feature-card {
+  width: 30%;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: #ff6f61;
+}
+
+.feature-card h3 {
+  margin: 15px 0;
+}
+
+.feature-card p {
+  color: #666;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+}
+
+#food-category {
+  padding: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+#food-category:focus {
+  border-color: #007BFF;
+  background-color: #fff;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filters label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.filters select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.restaurant-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.restaurant-info {
+  width: 100%;
+  text-align: left;
+}
+
+.restaurant-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.restaurant-info p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-info p i {
+  margin-right: 0.5rem;
+  color: #ff7f50;
+}
+
+.stars i {
+  color: #ffd700;
+}
+
+.back-button {
+  margin-top: 2rem;
+}
+
+.back-button .button {
+  padding: 0.7rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.back-button .button:hover {
+  background-color: #0056b3;
+}

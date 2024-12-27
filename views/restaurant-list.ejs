@@ -11,6 +11,34 @@
   <%- include('partials/header') %> <!-- 네비게이션 바 포함 -->
   <div class="container">
     <h1>맛집 리스트</h1>
+
+    <!-- 드롭다운 메뉴 -->
+    <div class="filters">
+      <!-- 음식 분류 드롭다운 -->
+      <form id="food-category-form" action="/restaurant-list" method="get">
+        <label for="food-category">음식 분류:</label>
+        <select name="category" id="food-category" onchange="this.form.submit()">
+          <option value="전체" <% if (selectedCategory === '전체') { %>selected<% } %>>전체</option>
+          <option value="한식" <% if (selectedCategory === '한식') { %>selected<% } %>>한식</option>
+          <option value="중식" <% if (selectedCategory === '중식') { %>selected<% } %>>중식</option>
+          <option value="일식" <% if (selectedCategory === '일식') { %>selected<% } %>>일식</option>
+        </select>
+      </form>
+    
+      <!-- 누구와 함께 드롭다운 -->
+      <form id="with-category-form" action="/restaurant-list" method="get">
+        <label for="with-category">누구와 함께:</label>
+        <select name="with" id="with-category" onchange="this.form.submit()">
+          <option value="전체" <% if (selectedWith === '전체') { %>selected<% } %>>전체</option>
+          <option value="가족" <% if (selectedWith === '가족') { %>selected<% } %>>가족</option>
+          <option value="친구" <% if (selectedWith === '친구') { %>selected<% } %>>친구</option>
+          <option value="연인" <% if (selectedWith === '연인') { %>selected<% } %>>연인</option>
+          <option value="혼자" <% if (selectedWith === '혼자') { %>selected<% } %>>혼자</option>
+          <option value="모두" <% if (selectedWith === '모두') { %>selected<% } %>>모두</option>
+        </select>
+      </form>
+    </div>
+
     <div class="restaurant-list">
       <% if (restaurants.length > 0) { %>
         <% restaurants.forEach(function(restaurant) { %>
@@ -26,11 +54,11 @@
                 <% } %>
               </span>
             </p>
-            <a href="/restaurant/<%= restaurant.id %>">상세 보기</a>
+            <a class="button" href="/restaurant/<%= restaurant.id %>">상세 보기</a>
           </div>
         <% }); %>
       <% } else { %>
-        <p>현재 맛집 목록이 없습니다.</p>
+        <p>해당 분류의 맛집이 없습니다.</p>
       <% } %>
     </div>
   </div>
