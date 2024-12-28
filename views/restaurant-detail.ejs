@@ -20,8 +20,11 @@
       <div class="restaurant-info">
         <h1><%= restaurant.name %></h1>
         <p><i class="fa fa-cutlery"></i> <strong>음식 분류:</strong> <%= restaurant.food_category %></p>
-        <p><i class="fa fa-users"></i> <strong>누구와 함께:</strong> <%= restaurant.with %></p>
+        <p><i class="fa fa-users"></i> <strong>누구와 함께:</strong> <%= restaurant.with_category %></p>
         <p><i class="fa fa-clock-o"></i> <strong>걸리는 시간:</strong> <%= restaurant.time_to_chart %></p>
+        <p><i class="fa fa-phone"></i> <strong>휴대폰 번호:</strong> 
+          <a href="tel:<%= restaurant.phone %>"><%= restaurant.phone %></a>
+        </p>
         <p><strong>평점:</strong> 
           <span class="stars">
             <% for (let i = 1; i <= 5; i++) { %>

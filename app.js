@@ -33,20 +33,23 @@ app.get('/', (req, res) => {
 
 // 맛집 리스트 페이지 라우트
 app.get('/restaurant-list', (req, res) => {
-  const category = req.query.category || '전체';
-  const withOption = req.query.with || '전체';
-
-  let query = 'SELECT id, name, food_category, time_to_chart, rating, image_url, with FROM restaurants WHERE 1=1';
+  const category = req.query.category || '전체'; // 음식 분류 선택
+  const withCategory = req.query.with || '전체'; // 누구와 함께 선택
+  let query = 'SELECT id, name, food_category, time_to_chart, rating, image_url FROM restaurants';
   const params = [];
 
-  if (category !== '전체') {
-    query += ' AND food_category = ?';
+  if (category !== '전체' && withCategory !== '전체') {
+    // 음식 분류와 누구와 함께 둘 다 선택된 경우
+    query += ' WHERE food_category = ? AND with_category LIKE ?';
+    params.push(category, `%${withCategory}%`);
+  } else if (category !== '전체') {
+    // 음식 분류만 선택된 경우
+    query += ' WHERE food_category = ?';
     params.push(category);
-  }
-
-  if (withOption !== '전체') {
-    query += ' AND FIND_IN_SET(?, `with`) > 0';
-    params.push(withOption);
+  } else if (withCategory !== '전체') {
+    // 누구와 함께만 선택된 경우
+    query += ' WHERE with_category LIKE ?';
+    params.push(`%${withCategory}%`);
   }
 
   db.query(query, params, (err, results) => {
@@ -54,11 +57,10 @@ app.get('/restaurant-list', (req, res) => {
       console.error('데이터베이스 조회 오류: ' + err.stack);
       return res.status(500).send('서버 오류');
     }
-
     res.render('restaurant-list', {
       restaurants: results,
-      selectedCategory: category,
-      selectedWith: withOption, // 전달
+      selectedCategory: category,  // 선택된 음식 분류
+      selectedWith: withCategory   // 선택된 '누구와 함께' 분류
     });
   });
 });
@@ -66,6 +68,9 @@ app.get('/restaurant-list', (req, res) => {
 // 맛집 상세 페이지 라우트
 app.get('/restaurant/:id', (req, res) => {
   const restaurantId = req.params.id;
+  const selectedCategory = req.query.category || '전체';
+  const selectedWith = req.query.with || '전체';
+
   const query = 'SELECT * FROM restaurants WHERE id = ?';
 
   db.query(query, [restaurantId], (err, results) => {
@@ -76,7 +81,11 @@ app.get('/restaurant/:id', (req, res) => {
     if (results.length === 0) {
       return res.status(404).send('맛집을 찾을 수 없습니다.');
     }
-    res.render('restaurant-detail', { restaurant: results[0] });
+    res.render('restaurant-detail', { 
+      restaurant: results[0], 
+      selectedCategory, 
+      selectedWith 
+    });
   });
 });
 

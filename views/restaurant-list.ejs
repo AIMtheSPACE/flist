@@ -14,19 +14,19 @@
 
     <!-- 드롭다운 메뉴 -->
     <div class="filters">
-      <!-- 음식 분류 드롭다운 -->
-      <form id="food-category-form" action="/restaurant-list" method="get">
+      <!-- 음식 분류와 누구와 함께 드롭다운을 하나의 폼으로 묶기 -->
+      <form action="/restaurant-list" method="get">
         <label for="food-category">음식 분류:</label>
         <select name="category" id="food-category" onchange="this.form.submit()">
           <option value="전체" <% if (selectedCategory === '전체') { %>selected<% } %>>전체</option>
           <option value="한식" <% if (selectedCategory === '한식') { %>selected<% } %>>한식</option>
           <option value="중식" <% if (selectedCategory === '중식') { %>selected<% } %>>중식</option>
           <option value="일식" <% if (selectedCategory === '일식') { %>selected<% } %>>일식</option>
+          <option value="양식" <% if (selectedCategory === '양식') { %>selected<% } %>>양식</option>
+          <option value="분식" <% if (selectedCategory === '분식') { %>selected<% } %>>분식</option>
+          <option value="기타" <% if (selectedCategory === '기타') { %>selected<% } %>>기타</option>
         </select>
-      </form>
-    
-      <!-- 누구와 함께 드롭다운 -->
-      <form id="with-category-form" action="/restaurant-list" method="get">
+        
         <label for="with-category">누구와 함께:</label>
         <select name="with" id="with-category" onchange="this.form.submit()">
           <option value="전체" <% if (selectedWith === '전체') { %>selected<% } %>>전체</option>
@@ -34,7 +34,6 @@
           <option value="친구" <% if (selectedWith === '친구') { %>selected<% } %>>친구</option>
           <option value="연인" <% if (selectedWith === '연인') { %>selected<% } %>>연인</option>
           <option value="혼자" <% if (selectedWith === '혼자') { %>selected<% } %>>혼자</option>
-          <option value="모두" <% if (selectedWith === '모두') { %>selected<% } %>>모두</option>
         </select>
       </form>
     </div>
