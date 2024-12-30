@@ -5,10 +5,10 @@ const app = express();
 
 // MySQL 연결 설정
 const db = mysql.createConnection({
-  host: 'localhost',        // MySQL 서버 호스트명
-  user: 'root',             // MySQL 사용자명
-  password: '0416',         // MySQL 비밀번호
-  database: 'restaurantDB'  // 사용하려는 데이터베이스 이름
+  host: 'ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',        // MySQL 서버 호스트명
+  user: 'kxcged22pmts9nyt',             // MySQL 사용자명
+  password: 'g53pv45drfl9k04c',         // MySQL 비밀번호
+  database: 'uci2bmjakr66mhj2'  // 사용하려는 데이터베이스 이름
 });
 
 db.connect((err) => {
